@@ -13,9 +13,6 @@ public class Player_Movement1 : MonoBehaviour
     private float xRotation = 0f;
 
     
-    
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();// buraya çektik kodda ayarlama yapabilelim diye
@@ -41,12 +38,8 @@ public class Player_Movement1 : MonoBehaviour
     {
         float moveX = Input.GetAxis("Horizontal"); // a d hareketleeri için
         float moveZ = Input.GetAxis("Vertical"); // w s hareketleri için
-        // transform.forward -> Karakterin baktığı "ileri" yönü
-        // transform.right -> Karakterin baktığı "sağ" yönü
-        Vector3 movementDirection = transform.forward * moveZ + transform.right * moveX; // transform.forward -> Karakterin baktığı "ileri" yönü, transform.right -> Karakterin baktığı "sağ" yönü
         
-
-        // Senin linearVelocity sisteminle, baktığı yöne göre hızı uyguluyoruz
+        Vector3 movementDirection = transform.forward * moveZ + transform.right * moveX; // transform.forward -> Karakterin baktığı "ileri" yönü, transform.right -> Karakterin baktığı "sağ" yönü
         rb.linearVelocity = new Vector3(movementDirection.x * PlayerSpeed, rb.linearVelocity.y, movementDirection.z * PlayerSpeed);  // velocity hız özelliği , rb.velocity.y = YERÇEKİMİNDEN DOLAYI, linearvelocity doğrusal
 
     }
