@@ -3105,12 +3105,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636707183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 574408869}
+  corridorlight: {fileID: 0}
   minIntensity: 50
   maxIntensity: 200
   flickerSpeed: 0.05
@@ -3663,7 +3663,7 @@ GameObject:
   - component: {fileID: 838956932}
   - component: {fileID: 838956933}
   m_Layer: 0
-  m_Name: "koridori\u015Fikleri"
+  m_Name: corridorlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3708,7 +3708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 0}
+  corridorlight: {fileID: 0}
   minIntensity: 500
   maxIntensity: 2000
   flickerSpeed: 0.05
@@ -3979,6 +3979,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2096543556112545069, guid: 862a99615eade5b43a80e86f879e0f77, type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 2096543556112545069, guid: 862a99615eade5b43a80e86f879e0f77, type: 3}
       propertyPath: near clip plane
       value: 0.01
@@ -4956,12 +4960,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299719996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 130811990}
+  corridorlight: {fileID: 0}
   minIntensity: 50
   maxIntensity: 200
   flickerSpeed: 0.05
@@ -6148,9 +6152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 1574247763}
-  minIntensity: 50
-  maxIntensity: 200
+  corridorlight: {fileID: 1574247763}
+  minIntensity: 10
+  maxIntensity: 20
   flickerSpeed: 0.05
 --- !u!1001 &1439101548
 PrefabInstance:
@@ -6289,9 +6293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 1625438836}
-  minIntensity: 50
-  maxIntensity: 100
+  corridorlight: {fileID: 1625438836}
+  minIntensity: 5
+  maxIntensity: 20
   flickerSpeed: 0.05
 --- !u!1001 &1452459087
 PrefabInstance:
@@ -6605,7 +6609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1472774702}
   m_Layer: 0
-  m_Name: ODA
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7116,6 +7120,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dcb21ad577d646659d0fe3a88ba1c6b, type: 3}
+--- !u!1 &1558055145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1558055147}
+  - component: {fileID: 1558055146}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1558055146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558055145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: b1c5530a338655347811a87a995e2246, type: 2}
+--- !u!4 &1558055147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558055145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1071.96, y: 111.87608, z: 1167.3466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1567032028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8232,7 +8285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1773566204}
   m_Layer: 0
-  m_Name: koridor
+  m_Name: Corridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9015,9 +9068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 1399329604}
-  minIntensity: 50
-  maxIntensity: 200
+  corridorlight: {fileID: 1399329604}
+  minIntensity: 5
+  maxIntensity: 15
   flickerSpeed: 0.05
 --- !u!1001 &1895044823
 PrefabInstance:
@@ -9762,14 +9815,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668184993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bab2438114bcc654a98d8cf12774c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::light
-  flickerLight: {fileID: 1468770055}
-  minIntensity: 50
-  maxIntensity: 200
+  corridorlight: {fileID: 1468770055}
+  minIntensity: 10
+  maxIntensity: 20
   flickerSpeed: 0.3
 --- !u!1001 &2035055986
 PrefabInstance:
@@ -10193,3 +10246,4 @@ SceneRoots:
   - {fileID: 838956932}
   - {fileID: 982977270}
   - {fileID: 19450866}
+  - {fileID: 1558055147}

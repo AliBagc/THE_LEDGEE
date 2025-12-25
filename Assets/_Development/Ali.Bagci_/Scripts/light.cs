@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class light : MonoBehaviour
 {
-    [SerializeField] private Light flickerLight; // Titreyecek olan lamba
+    [SerializeField] private Light corridorlight; // Titreyecek olan lamba
     [SerializeField] private float minIntensity = 50f; // En düşük ışık şiddeti 
     [SerializeField] private float maxIntensity = 300f; // En yüksek ışık şiddeti
     [SerializeField] private float flickerSpeed = 0.20f; // Titreme hızı (Saniye)
@@ -12,7 +12,7 @@ public class light : MonoBehaviour
     void Start()
     {
         
-        if (flickerLight == null) flickerLight = GetComponent<Light>(); //// Eğer lamba atanmadıysa otomatik bulsun diye yazdım
+        if ( corridorlight == null) corridorlight = GetComponent<Light>(); //// Eğer lamba atanmadıysa otomatik bulsun diye yazdım
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class light : MonoBehaviour
         if (timer <= 0)
         {
             
-            flickerLight.intensity = Random.Range(minIntensity, maxIntensity); // Işığın şiddetini rastgele bir değerle değiştiriyoruz
+            corridorlight.intensity = Random.Range(minIntensity, maxIntensity); // Işığın şiddetini rastgele bir değerle değiştiriyoruz
             
             
             timer = flickerSpeed; // Zamanlayıcıyı tekrar kuruyoruz
